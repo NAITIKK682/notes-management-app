@@ -1,21 +1,18 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  server: {
-    port: 5173,
-    open: true,
-    proxy: {
-      '/notes': {
-        target: 'http://localhost:5000',
-        changeOrigin: true,
-        secure: false,
-        rewrite: (path) => path
-      }
-    }
-  },
+  // Base path set kiya hai taaki files sahi se load hon
+  base: '/',
   build: {
     outDir: 'dist',
-    minify: 'terser',
-    sourcemap: false
+    emptyOutDir: true,
+    sourcemap: false,
+    // Production mein minify karna better hai
+    minify: 'esbuild' 
+  },
+  server: {
+    port: 5173,
+    open: true
+    // Proxy ko production mein ignore kiya jata hai
   }
 });
