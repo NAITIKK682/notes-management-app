@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="icon" href="data:;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMUlEQVQ4T2NkYGAQYcAP3MvBeP8mPhAEgxyLIByDRBgY8CH9D3IAEn6OxY8AAuAhYpIFAH9XEgXPtS9hAAAAAElFTkSuQmCC">
+  <title>NotesFlow Pro | Capture Ideas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <div id="app">
+    <header class="app-bar">
+      <div class="container bar-content">
+        <div class="brand">
+          <i data-lucide="layers" class="logo-icon"></i>
+          <h1>NotesFlow</h1>
+        </div>
+      </div>
+    </header>
+
+    <main class="container main-content">
+      <aside class="creation-panel">
+        <div class="premium-card">
+          <div class="card-header">
+            <i data-lucide="plus-circle"></i>
+            <h2>New Note</h2>
+          </div>
+          <form id="noteForm">
+            <div class="field-group">
+              <input type="text" id="noteTitle" name="title" placeholder="Heading..." required />
+            </div>
+            <div class="field-group">
+              <textarea id="noteContent" name="content" placeholder="Describe your thought here..." required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">
+              <span>Save Entry</span>
+              <i data-lucide="arrow-right"></i>
+            </button>
+          </form>
+        </div>
+      </aside>
+
+      <section class="list-panel">
+        <div class="list-header">
+          <i data-lucide="list"></i>
+          <h2>Your Collection</h2>
+        </div>
+        
+        <div id="notes-list" class="notes-grid">
+          </div>
+
+        <div id="emptyState" class="empty-ui">
+          <i data-lucide="ghost"></i>
+          <p>No notes in your vault yet.</p>
+        </div>
+      </section>
+    </main>
+
+    <div id="editModal" class="modal-overlay hidden">
+      <div class="premium-card modal-content">
+        <div class="card-header">
+          <i data-lucide="edit"></i>
+          <h2>Edit Note</h2>
+        </div>
+        <form id="editForm">
+          <input type="hidden" id="editNoteId">
+          <div class="field-group">
+            <input type="text" id="editTitle" required />
+          </div>
+          <div class="field-group">
+            <textarea id="editContent" required></textarea>
+          </div>
+          <div class="modal-btns">
+            <button type="button" id="closeModalBtn" class="btn-cancel">Cancel</button>
+            <button type="submit" class="btn-submit">Update Note</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <nav class="mobile-bottom-nav">
+      <a href="#" class="nav-link active">
+        <i data-lucide="home"></i>
+        <span>My Notes</span>
+      </a>
+    </nav>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

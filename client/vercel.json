@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "rewrites": [
+    {
+      "source": "/notes/:id*",
+      "destination": "https://your-backend.onrender.com/notes/:id*"
+    },
+    {
+      "source": "/notes",
+      "destination": "https://your-backend.onrender.com/notes"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
